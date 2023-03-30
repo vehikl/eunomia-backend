@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\WebsocketFire;
 use BeyondCode\LaravelWebSockets\Apps\AppProvider;
 use BeyondCode\LaravelWebSockets\Dashboard\DashboardLogger;
 use Exception;
@@ -36,5 +37,11 @@ class SocketController extends Controller
             "logChannel" => DashboardLogger::LOG_CHANNEL_PREFIX,
             "apps" => $appProvider->all()
         ];
+    }
+
+    public function fireEvent()
+    {
+        WebsocketFire::dispatch();
+        WebsocketFire::broadcast();
     }
 }
