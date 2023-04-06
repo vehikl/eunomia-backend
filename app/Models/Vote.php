@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PhpOption\Option;
 
-class Option extends Model
+class Vote extends Model
 {
     use HasFactory;
 
@@ -14,6 +15,11 @@ class Option extends Model
 
     public function votingSession() : BelongsTo
     {
-        return $this->belongsTo(VotingSession::class);
+        return $this->belongsTo(VotingSession::class, 'id', 'id');
+    }
+
+    public function option() : BelongsTo
+    {
+        return $this->belongsTo(Option::class, 'id', 'id');
     }
 }
