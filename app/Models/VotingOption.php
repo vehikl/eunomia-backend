@@ -20,6 +20,6 @@ class VotingOption extends Model
 
     public function votes() : HasMany
     {
-        return $this->hasMany(Vote::class, 'id', 'id');
+        return $this->hasMany(Vote::class);
     }
 }
