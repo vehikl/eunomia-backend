@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('voting_option_id');
-            $table->unsignedBigInteger('voting_session_id');
+            $table->unsignedBigInteger('voting_option_id')->nullable(false);
+            $table->unsignedBigInteger('voting_session_id')->nullable(false);
             $table->foreign('voting_option_id')->references('id')->on('voting_options');
             $table->foreign('voting_session_id')->references('id')->on('voting_sessions');
             $table->timestamps();

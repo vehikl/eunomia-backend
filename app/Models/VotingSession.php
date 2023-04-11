@@ -12,13 +12,13 @@ class VotingSession extends Model
 
     protected $guarded = [];
 
-    public function options() : HasMany
+    public function votingOptions() : HasMany
     {
-        return $this->hasMany(VotingOption::class, 'id', 'id');
+        return $this->hasMany(VotingOption::class);
     }
 
     public function votes() : HasMany
     {
-        return $this->hasMany(Vote::class, 'id', 'id');
+        return $this->hasMany(Vote::class);
     }
 }

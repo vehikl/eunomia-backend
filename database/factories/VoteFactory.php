@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\VotingOption;
+use App\Models\VotingSession;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,11 @@ class VoteFactory extends Factory
      */
     public function definition(): array
     {
+        $votingSession = VotingSession::query()->inRandomOrder()->first();
+        $votingOption = VotingOption::query()->inRandomOrder()->first();
         return [
-            //
+            'voting_option_id' => $votingOption->id,
+            'voting_session_id' => $votingSession->id
         ];
     }
 }

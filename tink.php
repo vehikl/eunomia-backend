@@ -5,7 +5,7 @@ use App\Models\VotingOption;
 use App\Models\VotingSession;
 
 $votingSession = VotingSession::create([
-    'slug' => 'snickers'
+    'slug' => 'chocolateBar'
 ]);
 
 $option = VotingOption::create([
@@ -19,4 +19,3 @@ $vote = Vote::create([
 
 $option->votingSession()->associate($votingSession->id);
 
-//$votingSession->options()->associate($option->id);

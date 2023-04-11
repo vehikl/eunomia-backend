@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('voting_options', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
+            $table->bigInteger('voting_session_id')->nullable(false);
+            $table->foreign('voting_session_id')->references('id')->on('voting_sessions');
             $table->timestamps();
         });
     }
