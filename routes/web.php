@@ -27,3 +27,7 @@ Route::prefix('/{votingSession}')->group(function() {
     Route::get('/', [VotingSessionController::class, 'show'])->name('votingSession.show');
     Route::get('/winner', [VotingSessionController::class, 'winner'])->name('votingSession.winner');
 });
+
+Route::get('/eventTest', function () {
+    MyEvent::dispatch();
+});
