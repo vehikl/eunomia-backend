@@ -40,4 +40,9 @@ class MyEvent implements ShouldBroadcast
             'message' => 'i like snickers',
         ];
     }
+
+    public function broadcastAs()
+    {
+        return 'my-event';
+    }
 }
