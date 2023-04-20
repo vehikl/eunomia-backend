@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VotingSessionController;
 use App\Events\MyEvent;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,9 @@ Route::get('/', function () {
 //
 Route::get('/eventTest', function () {
     MyEvent::dispatch();
+});
+
+Route::prefix('/{votingSession}')->group(function() {
+    Route::get('/', [VotingSessionController::class, 'show'])->name('votingSession.show');
+    Route::get('/winner', [VotingSessionController::class, 'winner'])->name('votingSession.winner');
 });
